@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Psyvote/static/css/main.376716f4.chunk.css",
+    "main.js": "/Psyvote/static/js/main.4685336c.chunk.js",
+    "main.js.map": "/Psyvote/static/js/main.4685336c.chunk.js.map",
+    "runtime-main.js": "/Psyvote/static/js/runtime-main.b64110eb.js",
+    "runtime-main.js.map": "/Psyvote/static/js/runtime-main.b64110eb.js.map",
+    "static/js/2.9641a947.chunk.js": "/Psyvote/static/js/2.9641a947.chunk.js",
+    "static/js/2.9641a947.chunk.js.map": "/Psyvote/static/js/2.9641a947.chunk.js.map",
+    "static/js/3.03a8e124.chunk.js": "/Psyvote/static/js/3.03a8e124.chunk.js",
+    "static/js/3.03a8e124.chunk.js.map": "/Psyvote/static/js/3.03a8e124.chunk.js.map",
+    "index.html": "/Psyvote/index.html",
+    "static/css/main.376716f4.chunk.css.map": "/Psyvote/static/css/main.376716f4.chunk.css.map",
+    "static/js/2.9641a947.chunk.js.LICENSE.txt": "/Psyvote/static/js/2.9641a947.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b64110eb.js",
+    "static/js/2.9641a947.chunk.js",
+    "static/css/main.376716f4.chunk.css",
+    "static/js/main.4685336c.chunk.js"
+  ]
+}
