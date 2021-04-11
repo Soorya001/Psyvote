@@ -11,7 +11,11 @@ const home = () => {
         ReactDOM.render(
         <>
             <div className="head1">
-            <h1>Welcome to PysVote</h1>
+            <h1>Welcome to PsyVote</h1>
+            </div>
+            
+            <div className="head2">
+                Master Table
             </div>
             
             <table class="scrolldown">

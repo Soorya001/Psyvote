@@ -7,7 +7,10 @@
     font-size: 20px;
 }
 
-
+.head2 {
+    font-size: 20px;
+    font-weight: bold;
+}
 
 table {
    width: 50%;
