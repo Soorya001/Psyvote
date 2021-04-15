@@ -1,20 +1,23 @@
 {
   "files": {
-    "main.css": "/Psyvote/static/css/main.aa75159d.chunk.css",
-    "main.js": "/Psyvote/static/js/main.80f1e637.chunk.js",
-    "main.js.map": "/Psyvote/static/js/main.80f1e637.chunk.js.map",
+    "main.css": "/Psyvote/static/css/main.09867959.chunk.css",
+    "main.js": "/Psyvote/static/js/main.19777cd7.chunk.js",
+    "main.js.map": "/Psyvote/static/js/main.19777cd7.chunk.js.map",
     "runtime-main.js": "/Psyvote/static/js/runtime-main.0a1c9737.js",
     "runtime-main.js.map": "/Psyvote/static/js/runtime-main.0a1c9737.js.map",
-    "static/js/2.6cbe4c4a.chunk.js": "/Psyvote/static/js/2.6cbe4c4a.chunk.js",
-    "static/js/2.6cbe4c4a.chunk.js.map": "/Psyvote/static/js/2.6cbe4c4a.chunk.js.map",
+    "static/css/2.658248ec.chunk.css": "/Psyvote/static/css/2.658248ec.chunk.css",
+    "static/js/2.7e52f3a3.chunk.js": "/Psyvote/static/js/2.7e52f3a3.chunk.js",
+    "static/js/2.7e52f3a3.chunk.js.map": "/Psyvote/static/js/2.7e52f3a3.chunk.js.map",
     "index.html": "/Psyvote/index.html",
-    "static/css/main.aa75159d.chunk.css.map": "/Psyvote/static/css/main.aa75159d.chunk.css.map",
-    "static/js/2.6cbe4c4a.chunk.js.LICENSE.txt": "/Psyvote/static/js/2.6cbe4c4a.chunk.js.LICENSE.txt"
+    "static/css/2.658248ec.chunk.css.map": "/Psyvote/static/css/2.658248ec.chunk.css.map",
+    "static/css/main.09867959.chunk.css.map": "/Psyvote/static/css/main.09867959.chunk.css.map",
+    "static/js/2.7e52f3a3.chunk.js.LICENSE.txt": "/Psyvote/static/js/2.7e52f3a3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0a1c9737.js",
-    "static/js/2.6cbe4c4a.chunk.js",
-    "static/css/main.aa75159d.chunk.css",
-    "static/js/main.80f1e637.chunk.js"
+    "static/css/2.658248ec.chunk.css",
+    "static/js/2.7e52f3a3.chunk.js",
+    "static/css/main.09867959.chunk.css",
+    "static/js/main.19777cd7.chunk.js"
   ]
 }
