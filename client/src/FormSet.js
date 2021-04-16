@@ -14,11 +14,6 @@ import Modals from "./Modals";
 
 import "bootstrap/dist/css/bootstrap.css";
 
-{
-  /* <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */
-}
-
 const FormSet = () => {
   const [str, setStr] = useState("");
   const [st, setSt] = useState(false);
