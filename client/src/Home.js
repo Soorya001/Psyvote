@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.css";
 import data from "./Data";
 import Form from "./FormSet";
+import axios from "axios";
 
 import ParticlesBg from "particles-bg";
 
 const Home = () => {
-  console.log("render");
+  // demo code for getting data from backend
+  // useEffect with [] -> fires the useEffect at the time of first load of the screen so we are fetching data from the api and setting it to the dataa useState
+  // the route http://localhost:5000/districts has districts at the end similarly other data from relations can also be obtained
+
+  const [dataa, setData] = useState({});
+  useEffect(() => {
+    const getData = async () => {
+      const dataaa = await axios.get("http://localhost:5000/districts");
+      console.log(dataa);
+      setData(dataaa.data.rows);
+    };
+    getData();
+  }, []);
+
+  // check the console for the contents of the dataa variable
+  console.log(dataa);
+
   const [wind, setWind] = useState(0);
 
   const [sel, setSel] = useState("Selected Window: 1 (default)");
@@ -37,19 +54,24 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((person) => {
-              const { id, name, age, city } = person;
-              return (
-                <tr key={id}>
-                  <tr>
-                    <td>{id}</td>
-                    <td>{name}</td>
-                    <td>{age}</td>
-                    <td>{city}</td>
+            {Object.keys(dataa).length === 0 ? (
+              <></>
+            ) : (
+              // each value from the dataa state is mapped and rendered
+              dataa.map((person) => {
+                const { ID, NAME, NO_OF_CONSTITUENCIES, POPULATION } = person;
+                return (
+                  <tr key={ID}>
+                    <tr>
+                      <td>{ID}</td>
+                      <td>{NAME}</td>
+                      <td>{NO_OF_CONSTITUENCIES}</td>
+                      <td>{POPULATION}</td>
+                    </tr>
                   </tr>
-                </tr>
-              );
-            })}
+                );
+              })
+            )}
           </tbody>
         </table>
         <div className="head2">Constituency Table</div>
