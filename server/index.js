@@ -5,6 +5,7 @@ import { GetData } from "./routes/getdata.js";
 import { AddData } from "./routes/adddata.js";
 import { DeleteData } from "./routes/deletedata.js";
 import { FindData } from "./routes/finddata.js";
+import { UpdateData } from "./routes/updatedata.js";
 
 //app config
 const app = express();
@@ -25,6 +26,7 @@ app.get("/getdata", GetData); //demo for data from oracle -> date from dual tabl
 app.get("/add", AddData);
 app.get("/delete", DeleteData);
 app.get("/find", FindData);
+app.get("/update", UpdateData);
 
 //listen
 const PORT = process.env.PORT || 5000;

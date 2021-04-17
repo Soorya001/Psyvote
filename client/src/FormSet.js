@@ -106,11 +106,7 @@ const FormSet = ({ setDataFromBackendForFiltering }) => {
                 <Nav.Link
                   href="#"
                   onClick={() =>
-                    func(
-                      "Adding a new Constituency: ",
-                      "Constituency",
-                      "addition"
-                    )
+                    func("Adding a new Constituency: ", "Constituency", "addition")
                   }
                 >
                   Constituency Table
@@ -144,31 +140,31 @@ const FormSet = ({ setDataFromBackendForFiltering }) => {
               <NavDropdown title="Updation" id="basic-nav-dropdown">
                 <Nav.Link
                   href="#"
-                  onClick={() => func("Updating District Table: ")}
+                  onClick={() => func("Updation-Enter Attribute, oldvalue, newvalue","District", "updation")}
                 >
                   District Table
                 </Nav.Link>
                 <Nav.Link
                   href="#"
-                  onClick={() => func("Updating Constituency Table: ")}
+                  onClick={() => func("Updating Constituency Table-Enter Attribute(s)","Constituency", "updation")}
                 >
                   Constituency Table
                 </Nav.Link>
                 <Nav.Link
                   href="#"
-                  onClick={() => func("Updating Voter Table: ")}
+                  onClick={() => func("Updating Voter Table-Enter Attribute(s)","Voter", "updation")}
                 >
                   Voter Table
                 </Nav.Link>
                 <Nav.Link
                   href="#"
-                  onClick={() => func("Updating Party Table: ")}
+                  onClick={() => func("Updating Party Table-Enter Attribute(s)", "Party", "updation")}
                 >
                   Party Table
                 </Nav.Link>
                 <Nav.Link
                   href="#"
-                  onClick={() => func("Updating Booth Table: ")}
+                  onClick={() => func("Updating Booth Table-Enter Attribute(s)","Booth", "updation")}
                 >
                   Booth Table
                 </Nav.Link>
@@ -178,12 +174,7 @@ const FormSet = ({ setDataFromBackendForFiltering }) => {
                 <Nav.Link
                   href="#"
                   onClick={() =>
-                    func(
-                      "Deleting from District Table: ",
-                      "District",
-                      "deletion"
-                    )
-                  }
+                    func("Deleting from District Table-Enter primary key: ","District","deletion")}
                 >
                   District Table
                 </Nav.Link>
@@ -191,18 +182,14 @@ const FormSet = ({ setDataFromBackendForFiltering }) => {
                   href="#"
                   onClick={() =>
                     func(
-                      "Deleting from Constituency Table: ",
-                      "Constituency",
-                      "deletion"
-                    )
-                  }
+                      "Deleting from Constituency Table-Enter primary key: ","Constituency","deletion")}
                 >
                   Constituency Table
                 </Nav.Link>
                 <Nav.Link
                   href="#"
                   onClick={() =>
-                    func("Deleting from Voter Table: ", "Voter", "deletion")
+                    func("Deleting from Voter Table-Enter primary key: ", "Voter", "deletion")
                   }
                 >
                   Voter Table
@@ -210,7 +197,7 @@ const FormSet = ({ setDataFromBackendForFiltering }) => {
                 <Nav.Link
                   href="#"
                   onClick={() =>
-                    func("Deleting from Party Table: ", "Party", "deletion")
+                    func("Deleting from Party Table-Enter primary key: ", "Party", "deletion")
                   }
                 >
                   Party Table
@@ -218,7 +205,7 @@ const FormSet = ({ setDataFromBackendForFiltering }) => {
                 <Nav.Link
                   href="#"
                   onClick={() =>
-                    func("Deleting from Booth Table: ", "Booth", "deletion")
+                    func("Deleting from Booth Table-Enter primary key: ", "Booth", "deletion")
                   }
                 >
                   Booth Table

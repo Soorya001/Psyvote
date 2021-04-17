@@ -26,6 +26,14 @@ const Modals = ({ setDbd, state, setSt, string, table, op, attribute }) => {
         });
         break;
       case "updation":
+        data = await axios.get("http://localhost:5000/update", {
+          params: {
+            table: table.toUpperCase(),
+            attribute: dataa[0],
+            oldvalue: dataa[1],
+            newvalue: dataa[2],
+          },
+        });
         break;
       case "deletion":
         data = await axios.get("http://localhost:5000/delete", {
