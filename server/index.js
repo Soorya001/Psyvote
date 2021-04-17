@@ -1,7 +1,10 @@
 //importing
 import express from "express";
 import cors from "cors";
-import { GetData } from "./routes/dbdata.js";
+import { GetData } from "./routes/getdata.js";
+import { AddData } from "./routes/adddata.js";
+import { DeleteData } from "./routes/deletedata.js";
+import { FindData } from "./routes/finddata.js";
 
 //app config
 const app = express();
@@ -18,7 +21,10 @@ app.use(express.json());
 //DB configs
 
 //api routes
-app.get("/districts", GetData); //demo for data from oracle -> date from dual table
+app.get("/getdata", GetData); //demo for data from oracle -> date from dual table
+app.get("/add", AddData);
+app.get("/delete", DeleteData);
+app.get("/find", FindData);
 
 //listen
 const PORT = process.env.PORT || 5000;

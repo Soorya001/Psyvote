@@ -1,14 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import ParticlesBg from "particles-bg";
-import Home from "./Home";
 import "./App.css";
 
-const MainStuff = () => {
-  ReactDOM.render(<Home />, document.getElementById("root"));
-};
+function App({ history }) {
+  const MainStuff = () => {
+    history.push("/Psyvote/home");
+  };
 
-function App() {
   return (
     <>
       <h1 id="head1">PsyVote </h1>

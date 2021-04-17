@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ParticlesBg from 'particles-bg';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./Home";
+import "./index.css";
+import App from "./App";
 
-
-ReactDOM.render( 
-  <>
-    <App />
-  </>,
-  document.getElementById('root')
+ReactDOM.render(
+  <BrowserRouter>
+    <Route path="/Psyvote" exact component={App} />
+    <Route path="/Psyvote/home" exact component={Home} />
+  </BrowserRouter>,
+  document.getElementById("root")
 );
-

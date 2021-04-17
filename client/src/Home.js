@@ -9,22 +9,29 @@ import ParticlesBg from "particles-bg";
 const Home = () => {
   // demo code for getting data from backend
   // useEffect with [] -> fires the useEffect at the time of first load of the screen so we are fetching data from the api and setting it to the dataa useState
-  // the route http://localhost:5000/districts has districts at the end similarly other data from relations can also be obtained
+  // the route http://localhost:5000/districts has districts in the backend similarly other data from relations can also be obtained
 
   const [dataa, setData] = useState({});
   useEffect(() => {
     const getData = async () => {
-      const dataaa = await axios.get("http://localhost:5000/districts");
+      const dataaa = await axios.get("http://localhost:5000/getdata", {
+        params: {
+          table: "district",
+        },
+      });
       setData(dataaa.data.rows);
     };
     getData();
   }, []);
 
   // check the console for the contents of the dataa variable
-  console.log(dataa);
+  // console.log(dataa);
 
   const [wind, setWind] = useState(0);
-
+  const [
+    dataFromBackendForFiltering,
+    setDataFromBackendForFiltering,
+  ] = useState({});
   const [sel, setSel] = useState("Selected Window: 1 (default)");
 
   const PickWind = (val) => {
@@ -32,6 +39,8 @@ const Home = () => {
     setSel(`Selected Window: ${val}`);
     console.log(val);
   };
+
+  console.log(dataFromBackendForFiltering);
 
   let i = 0;
 
@@ -54,7 +63,6 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            
             {Object.keys(dataa).length === 0 ? (
               <>(No data found)</>
             ) : (
@@ -73,7 +81,6 @@ const Home = () => {
                 );
               })
             )}
-            
           </tbody>
         </table>
         <div className="head2">Constituency Table</div>
@@ -109,7 +116,7 @@ const Home = () => {
       </div>
 
       <div>
-        <Form />
+        <Form setDataFromBackendForFiltering={setDataFromBackendForFiltering} />
       </div>
 
       <div className="head2">
