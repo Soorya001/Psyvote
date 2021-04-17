@@ -16,7 +16,7 @@ const UpdateData = async (req, res) => {
     });
     
     const result1 = await connection.execute(
-      `UPDATE ${table} SET ${attribute}=:newvalue WHERE ${attribute}=:oldvalue`,
+      `UPDATE ${table} SET ${attribute} = :newvalue WHERE ${attribute} = :oldvalue`,
       [newvalue, oldvalue]
     ); // write your query to be executed here
 

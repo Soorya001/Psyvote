@@ -11,17 +11,46 @@ const Home = () => {
   // useEffect with [] -> fires the useEffect at the time of first load of the screen so we are fetching data from the api and setting it to the dataa useState
   // the route http://localhost:5000/districts has districts in the backend similarly other data from relations can also be obtained
 
-  const [dataa, setData] = useState({});
+  const [datadist, setDataDist] = useState({});
+  const [dataconst, setDataConst] = useState({});
+  const [datavote, setDataVote] = useState({});
+
   useEffect(() => {
-    const getData = async () => {
-      const dataaa = await axios.get("http://localhost:5000/getdata", {
+    
+    //for district
+    const getDataDist = async () => {
+      const dataadist = await axios.get("http://localhost:5000/getdata", {
         params: {
           table: "district",
         },
       });
-      setData(dataaa.data.rows);
+      setDataDist(dataadist.data.rows);
     };
-    getData();
+    getDataDist();
+
+    //for constituency
+    const getDataConst = async () => {
+      const dataadist = await axios.get("http://localhost:5000/getdata", {
+        params: {
+          table: "constituency",
+        },
+      });
+      setDataConst(dataadist.data.rows);
+    };
+    getDataConst();
+
+
+    const getDataVote = async () => {
+      const dataadist = await axios.get("http://localhost:5000/getdata", {
+        params: {
+          table: "voter",
+        },
+      });
+      setDataVote(dataadist.data.rows);
+    };
+    getDataVote();
+
+
   }, []);
 
   // check the console for the contents of the dataa variable
@@ -63,11 +92,11 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {Object.keys(dataa).length === 0 ? (
+            {Object.keys(datadist).length === 0 ? (
               <>(No data found)</>
             ) : (
               // each value from the dataa state is mapped and rendered
-              dataa.map((person) => {
+              datadist.map((person) => {
                 const { ID, NAME, NO_OF_CONSTITUENCIES, POPULATION } = person;
                 return (
                   <tr key={ID}>
@@ -83,6 +112,8 @@ const Home = () => {
             )}
           </tbody>
         </table>
+
+
         <div className="head2">Constituency Table</div>
         <table className="scrolldown">
           <thead>
@@ -97,22 +128,65 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((person) => {
-              const { id, name, age, city, attr1, attr2, attr3 } = person;
+          {Object.keys(dataconst).length === 0 ? (
+              <>(No data found)</>
+            ) : (
+            dataconst.map((person) => {
+              const { ID, NAME, DISTRICT, RESERVATION, CURR_RULING, NO_OF_CONTESTANTS, POPULATION } = person;
+              console.log(person);
               return (
-                <tr key={i++}>
-                  <td>{id}</td>
-                  <td>{name}</td>
-                  <td>{age}</td>
-                  <td>{city}</td>
-                  <td>{attr1}</td>
-                  <td>{attr2}</td>
-                  <td>{attr3}</td>
+                <tr key={ID}>
+                  <td>{ID}</td>
+                  <td>{NAME}</td>
+                  <td>{DISTRICT}</td>
+                  <td>{RESERVATION}</td>
+                  <td>{NO_OF_CONTESTANTS}</td>
+                  <td>{POPULATION}</td>
                 </tr>
               );
-            })}
+            })
+            )}
           </tbody>
         </table>
+
+        <div className="head2">Voter Table</div>
+        <table className="scrolldown">
+          <thead>
+            <tr>
+              <th>Voter ID</th>
+              <th>Name</th>
+              <th>Fathers Name</th>
+              <th>DOB</th>
+              <th>Gender</th>
+              <th>Category</th>
+              <th>Booth</th>
+            </tr>
+          </thead>
+          <tbody>
+          {Object.keys(datavote).length === 0 ? (
+              <>(No data found)</>
+            ) : (
+            datavote.map((person) => {
+              const { ID, NAME, FATHERS_NAME, DOB, GENDER, CATEGORY, BOOTH} = person;
+              console.log(person);
+              return (
+                <tr key={ID}>
+                  <td>{ID}</td>
+                  <td>{NAME.substr(0,10)}</td>
+                  <td>{FATHERS_NAME.substr(0,10)}</td>
+                  <td>{DOB.substr(0,10)}</td>
+                  <td>{GENDER}</td>
+                  <td>{CATEGORY}</td>
+                  <td>{BOOTH}</td>
+                </tr>
+              );
+            })
+            )}
+          </tbody>
+        </table>
+
+
+
       </div>
 
       <div>
