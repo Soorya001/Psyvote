@@ -15,7 +15,6 @@ const Home = () => {
   useEffect(() => {
     const getData = async () => {
       const dataaa = await axios.get("http://localhost:5000/districts");
-      console.log(dataa);
       setData(dataaa.data.rows);
     };
     getData();
@@ -33,6 +32,7 @@ const Home = () => {
     setSel(`Selected Window: ${val}`);
     console.log(val);
   };
+
   let i = 0;
 
   return (
@@ -54,8 +54,9 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
+            
             {Object.keys(dataa).length === 0 ? (
-              <></>
+              <>(No data found)</>
             ) : (
               // each value from the dataa state is mapped and rendered
               dataa.map((person) => {
@@ -72,6 +73,7 @@ const Home = () => {
                 );
               })
             )}
+            
           </tbody>
         </table>
         <div className="head2">Constituency Table</div>
