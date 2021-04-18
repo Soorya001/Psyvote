@@ -9,7 +9,8 @@ oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
 
 const UpdateData = async (req, res) => {
   let connection;
-  const { attribute, oldvalue, newvalue, table } = req.query;
+  let { data, table } = req.query;
+  data = data.split(",");
   console.log(req.query);
   try {
     connection = await oracledb.getConnection({
@@ -17,6 +18,8 @@ const UpdateData = async (req, res) => {
       password: PASSWORD,
       connectString: CONNECTIONSTRING,
     });
+
+    const [attribute, oldvalue, newvalue] = data;
 
     await connection.execute(
       `UPDATE ${table} SET ${attribute} = :newvalue WHERE ${attribute} = :oldvalue`,

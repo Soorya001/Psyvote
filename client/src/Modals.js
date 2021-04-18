@@ -21,17 +21,14 @@ const Modals = ({
   const onFormSubmit = async (e) => {
     e.preventDefault();
     const str = e.target[0].value;
-    const dataa = str.split(",");
+    const dataa = str;
     let data;
     switch (op) {
       case "addition":
         data = await axios.get("http://localhost:5000/add", {
           params: {
             table: table.toUpperCase(),
-            id: dataa[0],
-            name: dataa[1],
-            no_of_constituencies: dataa[2],
-            population: dataa[3],
+            data: dataa,
           },
         });
         break;
@@ -39,9 +36,7 @@ const Modals = ({
         data = await axios.get("http://localhost:5000/update", {
           params: {
             table: table.toUpperCase(),
-            attribute: dataa[0],
-            oldvalue: dataa[1],
-            newvalue: dataa[2],
+            data: dataa,
           },
         });
         break;
