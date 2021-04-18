@@ -3,7 +3,12 @@ import { NavDropdown } from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.css";
 import Modals from "./Modals";
-const Tables = ({ string, setDataFromBackendForFiltering, setDataUpdater }) => {
+const Tables = ({
+  string,
+  setDataFromBackendForFiltering,
+  setDataUpdater,
+  dataUpdater,
+}) => {
   const [str, setStr] = useState("");
   const [st, setSt] = useState(false);
   const [operation, setOperation] = useState("");
@@ -33,6 +38,7 @@ const Tables = ({ string, setDataFromBackendForFiltering, setDataUpdater }) => {
           op={operation}
           attribute={attribute}
           setDataUpdater={setDataUpdater}
+          dataUpdater={dataUpdater}
         />
       ) : (
         <></>

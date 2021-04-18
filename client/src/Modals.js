@@ -12,6 +12,7 @@ const Modals = ({
   op,
   attribute,
   setDataUpdater,
+  dataUpdater,
 }) => {
   const hideModal = () => {
     setSt(false);
@@ -71,7 +72,7 @@ const Modals = ({
       (op === "updation" || op === "deletion" || op === "addition") &&
       data.data === "success"
     )
-      setDataUpdater(Math.random * 100);
+      setDataUpdater(dataUpdater + 1);
     // window.location.reload();
   };
 

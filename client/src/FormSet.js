@@ -18,6 +18,7 @@ const FormSet = ({
   setDataFromBackendForFiltering,
   setTabName,
   setDataUpdater,
+  dataUpdater,
 }) => {
   const [str, setStr] = useState("");
   const [operation, setOperation] = useState("");
@@ -42,6 +43,7 @@ const FormSet = ({
           table={tableFinder}
           op={operation}
           setDataUpdater={setDataUpdater}
+          dataUpdater={dataUpdater}
         />
       ) : (
         <></>
@@ -59,6 +61,7 @@ const FormSet = ({
                     setDataFromBackendForFiltering
                   }
                   setDataUpdater={setDataUpdater}
+                  dataUpdater={dataUpdater}
                 />
               </NavDropdown>
 

@@ -13,6 +13,8 @@ const Home = () => {
   const [datapart, setDataPart] = useState({});
   const [dataUpdater, setDataUpdater] = useState(0);
 
+  console.log(dataUpdater);
+
   var dict = {
     District: datadist,
     Constituency: dataconst,
@@ -224,6 +226,7 @@ const Home = () => {
           setDataFromBackendForFiltering={setDataFromBackendForFiltering}
           setTabName={setTabName}
           setDataUpdater={setDataUpdater}
+          dataUpdater={dataUpdater}
         />
       </div>
 
