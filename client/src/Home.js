@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
-import data from "./Data";
 import Form from "./FormSet";
 import axios from "axios";
 
 import ParticlesBg from "particles-bg";
 
 const Home = () => {
-  // demo code for getting data from backend
-  // useEffect with [] -> fires the useEffect at the time of first load of the screen so we are fetching data from the api and setting it to the dataa useState
-  // the route http://localhost:5000/districts has districts in the backend similarly other data from relations can also be obtained
-
   const [datadist, setDataDist] = useState({});
   const [dataconst, setDataConst] = useState({});
   const [datavote, setDataVote] = useState({});
 
   useEffect(() => {
-    
     //for district
     const getDataDist = async () => {
       const dataadist = await axios.get("http://localhost:5000/getdata", {
@@ -39,7 +33,6 @@ const Home = () => {
     };
     getDataConst();
 
-
     const getDataVote = async () => {
       const dataadist = await axios.get("http://localhost:5000/getdata", {
         params: {
@@ -49,8 +42,6 @@ const Home = () => {
       setDataVote(dataadist.data.rows);
     };
     getDataVote();
-
-
   }, []);
 
   // check the console for the contents of the dataa variable
@@ -70,8 +61,6 @@ const Home = () => {
   };
 
   console.log(dataFromBackendForFiltering);
-
-  let i = 0;
 
   return (
     <>
@@ -113,7 +102,6 @@ const Home = () => {
           </tbody>
         </table>
 
-
         <div className="head2">Constituency Table</div>
         <table className="scrolldown">
           <thead>
@@ -128,23 +116,31 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-          {Object.keys(dataconst).length === 0 ? (
+            {Object.keys(dataconst).length === 0 ? (
               <>(No data found)</>
             ) : (
-            dataconst.map((person) => {
-              const { ID, NAME, DISTRICT, RESERVATION, CURR_RULING, NO_OF_CONTESTANTS, POPULATION } = person;
-              console.log(person);
-              return (
-                <tr key={ID}>
-                  <td>{ID}</td>
-                  <td>{NAME}</td>
-                  <td>{DISTRICT}</td>
-                  <td>{RESERVATION}</td>
-                  <td>{NO_OF_CONTESTANTS}</td>
-                  <td>{POPULATION}</td>
-                </tr>
-              );
-            })
+              dataconst.map((person) => {
+                const {
+                  ID,
+                  NAME,
+                  DISTRICT,
+                  RESERVATION,
+                  CURR_RULING,
+                  NO_OF_CONTESTANTS,
+                  POPULATION,
+                } = person;
+                return (
+                  <tr key={ID}>
+                    <td>{ID}</td>
+                    <td>{NAME}</td>
+                    <td>{DISTRICT}</td>
+                    <td>{RESERVATION}</td>
+                    <td>{CURR_RULING}</td>
+                    <td>{NO_OF_CONTESTANTS}</td>
+                    <td>{POPULATION}</td>
+                  </tr>
+                );
+              })
             )}
           </tbody>
         </table>
@@ -163,30 +159,34 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-          {Object.keys(datavote).length === 0 ? (
+            {Object.keys(datavote).length === 0 ? (
               <>(No data found)</>
             ) : (
-            datavote.map((person) => {
-              const { ID, NAME, FATHERS_NAME, DOB, GENDER, CATEGORY, BOOTH} = person;
-              console.log(person);
-              return (
-                <tr key={ID}>
-                  <td>{ID}</td>
-                  <td>{NAME.substr(0,10)}</td>
-                  <td>{FATHERS_NAME.substr(0,10)}</td>
-                  <td>{DOB.substr(0,10)}</td>
-                  <td>{GENDER}</td>
-                  <td>{CATEGORY}</td>
-                  <td>{BOOTH}</td>
-                </tr>
-              );
-            })
+              datavote.map((person) => {
+                const {
+                  ID,
+                  NAME,
+                  FATHERS_NAME,
+                  DOB,
+                  GENDER,
+                  CATEGORY,
+                  BOOTH,
+                } = person;
+                return (
+                  <tr key={ID}>
+                    <td>{ID}</td>
+                    <td>{NAME.substr(0, 10)}</td>
+                    <td>{FATHERS_NAME.substr(0, 10)}</td>
+                    <td>{DOB.substr(0, 10)}</td>
+                    <td>{GENDER}</td>
+                    <td>{CATEGORY}</td>
+                    <td>{BOOTH}</td>
+                  </tr>
+                );
+              })
             )}
           </tbody>
         </table>
-
-
-
       </div>
 
       <div>
