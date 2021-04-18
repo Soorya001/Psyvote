@@ -3,7 +3,16 @@ import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Modals = ({ setDbd, state, setSt, string, table, op, attribute }) => {
+const Modals = ({
+  setDbd,
+  state,
+  setSt,
+  string,
+  table,
+  op,
+  attribute,
+  setDataUpdater,
+}) => {
   const hideModal = () => {
     setSt(false);
   };
@@ -62,7 +71,8 @@ const Modals = ({ setDbd, state, setSt, string, table, op, attribute }) => {
       (op === "updation" || op === "deletion" || op === "addition") &&
       data.data === "success"
     )
-      window.location.reload();
+      setDataUpdater(Math.random * 100);
+    // window.location.reload();
   };
 
   return (

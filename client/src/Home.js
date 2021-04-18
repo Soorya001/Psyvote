@@ -11,6 +11,7 @@ const Home = () => {
   const [dataconst, setDataConst] = useState({});
   const [datavote, setDataVote] = useState({});
   const [datapart, setDataPart] = useState({});
+  const [dataUpdater, setDataUpdater] = useState(0);
 
   var dict = {
     District: datadist,
@@ -67,7 +68,7 @@ const Home = () => {
       setDataPart(dataadist.data.rows);
     };
     getDataPart();
-  }, []);
+  }, [dataUpdater]);
 
   // check the console for the contents of the dataa variable
   // console.log(dataa);
@@ -222,6 +223,7 @@ const Home = () => {
         <Form
           setDataFromBackendForFiltering={setDataFromBackendForFiltering}
           setTabName={setTabName}
+          setDataUpdater={setDataUpdater}
         />
       </div>
 
