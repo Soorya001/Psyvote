@@ -16,9 +16,15 @@ import "bootstrap/dist/css/bootstrap.css";
 
 const FormSet = ({
   setDataFromBackendForFiltering,
-  setTabName,
   setDataUpdater,
   dataUpdater,
+  curview,
+  setd1,
+  setd2,
+  setd3,
+  setd4,
+  setd5,
+  setd6,
 }) => {
   const [str, setStr] = useState("");
   const [operation, setOperation] = useState("");
@@ -30,7 +36,29 @@ const FormSet = ({
     setStr(str);
     setOperation(op);
     setTableFinder(table);
-    setTabName(table);
+    switch (curview) {
+      case 1:
+        setd1(table);
+        break;
+      case 2:
+        setd2(table);
+        break;
+      case 3:
+        setd3(table);
+        break;
+      case 4:
+        setd4(table);
+        break;
+      case 5:
+        setd5(table);
+        break;
+      case 6:
+        setd6(table);
+        break;
+
+      default:
+        break;
+    }
   };
 
   return (

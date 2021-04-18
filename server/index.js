@@ -6,6 +6,7 @@ import { AddData } from "./routes/adddata.js";
 import { DeleteData } from "./routes/deletedata.js";
 import { FindData } from "./routes/finddata.js";
 import { UpdateData } from "./routes/updatedata.js";
+import { Joins } from "./routes/joins.js";
 
 //app config
 const app = express();
@@ -27,6 +28,7 @@ app.get("/add", AddData);
 app.get("/delete", DeleteData);
 app.get("/find", FindData);
 app.get("/update", UpdateData);
+app.get("/joins", Joins);
 
 //listen
 const PORT = process.env.PORT || 5000;

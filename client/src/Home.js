@@ -13,9 +13,18 @@ const Home = () => {
   const [datapart, setDataPart] = useState({});
   const [databoot, setDataBoot] = useState({});
 
+  const [d1, setd1] = useState("");
+  const [d2, setd2] = useState("");
+  const [d3, setd3] = useState("");
+  const [d4, setd4] = useState("");
+  const [d5, setd5] = useState("");
+  const [d6, setd6] = useState("");
+
+  // const [curview, setCurview] = useState(1);
+
   const [dataUpdater, setDataUpdater] = useState(0);
 
-  console.log(dataUpdater);
+  // console.log(dataUpdater);
 
   var dict = {
     District: datadist,
@@ -24,12 +33,6 @@ const Home = () => {
     Party: datapart,
     Booth: databoot,
   };
-
-  const [tabname, setTabName] = useState("");
-  console.log(tabname);
-
-  //this is what we pass as props into the displaytable function
-  const data = dict[tabname];
 
   useEffect(() => {
     //for district
@@ -83,32 +86,26 @@ const Home = () => {
       setDataBoot(dataadist.data.rows);
     };
     getDataBoot();
-
-
-
-
   }, [dataUpdater]);
 
   // check the console for the contents of the dataa variable
   // console.log(dataa);
 
-  const [wind, setWind] = useState(0);
+  const [wind, setWind] = useState(1);
   const [
     dataFromBackendForFiltering,
     setDataFromBackendForFiltering,
   ] = useState({});
 
   const [sel, setSel] = useState("Selected Window: 1 (default)");
-  const [val, setVal] = useState(0);
 
   const PickWind = (val) => {
-    setVal(val);
     setWind(val);
     setSel(`Selected Window: ${val}`);
     console.log(val);
   };
 
-  console.log(dataFromBackendForFiltering);
+  // console.log(dataFromBackendForFiltering);
 
   return (
     <>
@@ -224,9 +221,9 @@ const Home = () => {
                 return (
                   <tr key={ID}>
                     <td>{ID}</td>
-                    <td>{NAME.substr(0, 10)}</td>
-                    <td>{FATHERS_NAME.substr(0, 10)}</td>
-                    <td>{DOB.substr(0, 10)}</td>
+                    <td>{NAME}</td>
+                    <td>{FATHERS_NAME}</td>
+                    <td>{DOB}</td>
                     <td>{GENDER}</td>
                     <td>{CATEGORY}</td>
                     <td>{BOOTH}</td>
@@ -241,9 +238,15 @@ const Home = () => {
       <div>
         <Form
           setDataFromBackendForFiltering={setDataFromBackendForFiltering}
-          setTabName={setTabName}
           setDataUpdater={setDataUpdater}
           dataUpdater={dataUpdater}
+          setd1={setd1}
+          setd2={setd2}
+          setd3={setd3}
+          setd4={setd4}
+          setd5={setd5}
+          setd6={setd6}
+          curview={wind}
         />
       </div>
 
@@ -254,50 +257,22 @@ const Home = () => {
 
       <div className="flex-container">
         <div id="1" onClick={() => PickWind(1)}>
-          {val === 1 && tabname != "" ? (
-            <DisplayTable
-              tabname={tabname}
-              data={data}
-              setTabName={setTabName}
-            />
-          ) : (
-            "1"
-          )}
+          {d1 !== "" ? <DisplayTable tabname={d1} data={dict[d1]} /> : "1"}
         </div>
         <div id="2" onClick={() => PickWind(2)}>
-          {val === 2 && tabname != "" ? (
-            <DisplayTable tabname={tabname} data={data} />
-          ) : (
-            "2 "
-          )}
+          {d2 !== "" ? <DisplayTable tabname={d2} data={dict[d2]} /> : "2 "}
         </div>
         <div id="3" onClick={() => PickWind(3)}>
-          {val === 3 && tabname != "" ? (
-            <DisplayTable tabname={tabname} data={data} />
-          ) : (
-            "3"
-          )}
+          {d3 !== "" ? <DisplayTable tabname={d3} data={dict[d3]} /> : "3"}
         </div>
         <div id="4" onClick={() => PickWind(4)}>
-          {val === 4 && tabname != "" ? (
-            <DisplayTable tabname={tabname} data={data} />
-          ) : (
-            "4"
-          )}
+          {d4 !== "" ? <DisplayTable tabname={d4} data={dict[d4]} /> : "4"}
         </div>
         <div id="5" onClick={() => PickWind(5)}>
-          {val === 5 && tabname != "" ? (
-            <DisplayTable tabname={tabname} data={data} />
-          ) : (
-            "5"
-          )}
+          {d5 !== "" ? <DisplayTable tabname={d5} data={dict[d5]} /> : "5"}
         </div>
         <div id="6" onClick={() => PickWind(6)}>
-          {val === 6 && tabname != "" ? (
-            <DisplayTable tabname={tabname} data={data} />
-          ) : (
-            "6"
-          )}
+          {d6 !== "" ? <DisplayTable tabname={d6} data={dict[d6]} /> : "6"}
         </div>
       </div>
 

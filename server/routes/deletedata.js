@@ -22,7 +22,7 @@ const DeleteData = async (req, res) => {
       `DELETE FROM ${table} WHERE ID=${id}`
     ); // write your query to be executed here
 
-    const result = await connection.execute("select * from district");
+    // const result = await connection.execute("select * from district");
 
     await connection.execute("commit");
     res.send("success");
