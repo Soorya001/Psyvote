@@ -5,6 +5,8 @@ import Form from "./FormSet";
 import axios from "axios";
 
 import ParticlesBg from "particles-bg";
+import DisplayTable from "./DisplayTable";
+
 
 const Home = () => {
   // demo code for getting data from backend
@@ -14,9 +16,19 @@ const Home = () => {
   const [datadist, setDataDist] = useState({});
   const [dataconst, setDataConst] = useState({});
   const [datavote, setDataVote] = useState({});
+  const [datapart, setDataPart] = useState({});
+
+  var dict = {"District": datadist, "Constituency":dataconst, "Voter": datavote, "Party": datapart};
+
+  
+  const [tabname, setTabName] = useState("");
+  console.log(tabname);
+
+  //this is what we pass as props into the displaytable function
+  const data=dict[tabname];
 
   useEffect(() => {
-    
+
     //for district
     const getDataDist = async () => {
       const dataadist = await axios.get("http://localhost:5000/getdata", {
@@ -29,7 +41,7 @@ const Home = () => {
     getDataDist();
 
     //for constituency
-    const getDataConst = async () => {
+    const getDataCons = async () => {
       const dataadist = await axios.get("http://localhost:5000/getdata", {
         params: {
           table: "constituency",
@@ -37,7 +49,7 @@ const Home = () => {
       });
       setDataConst(dataadist.data.rows);
     };
-    getDataConst();
+    getDataCons();
 
 
     const getDataVote = async () => {
@@ -50,6 +62,16 @@ const Home = () => {
     };
     getDataVote();
 
+    const getDataPart = async () => {
+      const dataadist = await axios.get("http://localhost:5000/getdata", {
+        params: {
+          table: "party",
+        },
+      });
+      setDataPart(dataadist.data.rows);
+    };
+    getDataPart();
+
 
   }, []);
 
@@ -61,9 +83,12 @@ const Home = () => {
     dataFromBackendForFiltering,
     setDataFromBackendForFiltering,
   ] = useState({});
+
   const [sel, setSel] = useState("Selected Window: 1 (default)");
+  const [val ,setVal] = useState(0);
 
   const PickWind = (val) => {
+    setVal(val);
     setWind(val);
     setSel(`Selected Window: ${val}`);
     console.log(val);
@@ -82,7 +107,8 @@ const Home = () => {
       <div className="head2">District Table</div>
 
       <div>
-        <table className="scrolldown">
+        {/* <DisplayTable tabname={tabname} data={datadist} /> */}
+        <table className="table2">
           <thead>
             <tr>
               <th>District ID</th>
@@ -111,11 +137,11 @@ const Home = () => {
               })
             )}
           </tbody>
-        </table>
+        </table> 
 
 
         <div className="head2">Constituency Table</div>
-        <table className="scrolldown">
+        <table className="table2">
           <thead>
             <tr>
               <th>Constituency Id ID</th>
@@ -137,9 +163,10 @@ const Home = () => {
               return (
                 <tr key={ID}>
                   <td>{ID}</td>
-                  <td>{NAME}</td>
+                  <td>{NAME.substr(0,15)}</td>
                   <td>{DISTRICT}</td>
                   <td>{RESERVATION}</td>
+                  <td>{CURR_RULING}</td>
                   <td>{NO_OF_CONTESTANTS}</td>
                   <td>{POPULATION}</td>
                 </tr>
@@ -150,7 +177,7 @@ const Home = () => {
         </table>
 
         <div className="head2">Voter Table</div>
-        <table className="scrolldown">
+        <table className="table2">
           <thead>
             <tr>
               <th>Voter ID</th>
@@ -190,7 +217,7 @@ const Home = () => {
       </div>
 
       <div>
-        <Form setDataFromBackendForFiltering={setDataFromBackendForFiltering} />
+        <Form setDataFromBackendForFiltering={setDataFromBackendForFiltering} setTabName={setTabName}/>
       </div>
 
       <div className="head2">
@@ -200,22 +227,22 @@ const Home = () => {
 
       <div className="flex-container">
         <div id="1" onClick={() => PickWind(1)}>
-          1
+          {val === 1 && tabname!=""? <DisplayTable tabname={tabname} data={data} setTabName={setTabName}/> : "1"}
         </div>
         <div id="2" onClick={() => PickWind(2)}>
-          2
+          {val === 2 && tabname!=""? <DisplayTable tabname={tabname} data={data} /> : "2 "}
         </div>
         <div id="3" onClick={() => PickWind(3)}>
-          3
+          {val === 3 && tabname!=""? <DisplayTable tabname={tabname} data={data} /> : "3"}
         </div>
         <div id="4" onClick={() => PickWind(4)}>
-          4
+          {val === 4 && tabname!=""? <DisplayTable tabname={tabname} data={data} /> : "4"}
         </div>
         <div id="5" onClick={() => PickWind(5)}>
-          5
+          {val === 5 && tabname!=""? <DisplayTable tabname={tabname} data={data} /> : "5"}
         </div>
         <div id="6" onClick={() => PickWind(6)}>
-          6
+          {val === 6 && tabname!=""? <DisplayTable tabname={tabname} data={data} /> : "6"}
         </div>
       </div>
 

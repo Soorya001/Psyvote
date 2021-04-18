@@ -21,22 +21,35 @@
     margin-top: 40px;
 }
 
-table {
-   width: 55%;
+
+.table2 {
+   width: 65%;
    background-color: rgb(198, 240, 163);
    border-collapse: collapse;
    margin-left:auto;
    margin-right: auto;
    margin-top: 10px;
-}
-
-table.scrolldown {
     /* border-collapse: collapse; */
-    border-spacing: 0;
-    border: 2px solid black;
+   border-spacing: 0;
+   border: 2px solid black;
 }
 
-table.scrolldown tbody, table.scrolldown thead {
+.tablesmall {
+   width: 98%;
+   background-color: rgb(198, 240, 163);
+   border-collapse: collapse;
+   margin-left:auto;
+   margin-right: auto;
+    /* border-collapse: collapse; */
+   border-spacing: 0;
+   border: 2px solid black;
+}
+
+.table2 tbody, 
+.table2 thead,
+.tablesmall tbody,
+.tablesmall thead
+{
     display: block;
 } 
 
@@ -45,8 +58,8 @@ thead tr th {
     line-height: 40px;
 }
 
-table.scrolldown tbody {
-              
+.table2 tbody
+{       
     /* Set the height of table body */
     height: 170px; 
       
@@ -56,10 +69,25 @@ table.scrolldown tbody {
     /* Hide the horizontal scroll */
     overflow-x: auto; 
 }
+
+.tablesmall tbody
+{
+    /* Set the height of table body */
+    height: 200px; 
+      
+    /* Set vertical scroll */
+    overflow-y: scroll;
+      
+    /* Hide the horizontal scroll */
+    overflow-x: scroll; 
+
+}
+
   
   
 tbody td, thead th {
-    width : 200px;
+    width : 300px;
+    text-align: center;
 }
 
 
@@ -98,8 +126,7 @@ td {
 .flex-container > div {
     background-color: #f1f1f1;
     margin: 10px;
-    padding: 20px;
-    height: 200px;
+    height: 300px;
     width: 500px;
     transition: transform .2s; /* Animation */
 }
