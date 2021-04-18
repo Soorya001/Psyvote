@@ -14,7 +14,7 @@ import Modals from "./Modals";
 
 import "bootstrap/dist/css/bootstrap.css";
 
-const FormSet = ({ setDataFromBackendForFiltering }) => {
+const FormSet = ({ setDataFromBackendForFiltering, setTabName }) => {
   const [str, setStr] = useState("");
   const [operation, setOperation] = useState("");
   const [st, setSt] = useState(false);
@@ -25,6 +25,7 @@ const FormSet = ({ setDataFromBackendForFiltering }) => {
     setStr(str);
     setOperation(op);
     setTableFinder(table);
+    setTabName(table);
   };
 
   return (
