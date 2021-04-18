@@ -11,6 +11,8 @@ const Home = () => {
   const [dataconst, setDataConst] = useState({});
   const [datavote, setDataVote] = useState({});
   const [datapart, setDataPart] = useState({});
+  const [databoot, setDataBoot] = useState({});
+
   const [dataUpdater, setDataUpdater] = useState(0);
 
   console.log(dataUpdater);
@@ -20,6 +22,7 @@ const Home = () => {
     Constituency: dataconst,
     Voter: datavote,
     Party: datapart,
+    Booth: databoot,
   };
 
   const [tabname, setTabName] = useState("");
@@ -70,6 +73,20 @@ const Home = () => {
       setDataPart(dataadist.data.rows);
     };
     getDataPart();
+
+    const getDataBoot = async () => {
+      const dataadist = await axios.get("http://localhost:5000/getdata", {
+        params: {
+          table: "booth",
+        },
+      });
+      setDataBoot(dataadist.data.rows);
+    };
+    getDataBoot();
+
+
+
+
   }, [dataUpdater]);
 
   // check the console for the contents of the dataa variable
