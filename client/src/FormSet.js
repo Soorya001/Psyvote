@@ -158,7 +158,7 @@ const FormSet = ({
                   href="#"
                   onClick={() =>
                     func(
-                      "Updation-Enter Attribute, oldvalue, newvalue",
+                      "Updation-Enter Attribute1, value1, attribute2, value2",
                       "District",
                       "updation"
                     )
@@ -170,7 +170,7 @@ const FormSet = ({
                   href="#"
                   onClick={() =>
                     func(
-                      "Updating Constituency Table-Enter Attribute(s)",
+                      "Updation-Enter Attribute1, value1, attribute2, value2",
                       "Constituency",
                       "updation"
                     )
@@ -182,7 +182,7 @@ const FormSet = ({
                   href="#"
                   onClick={() =>
                     func(
-                      "Updating Voter Table-Enter Attribute(s)",
+                      "Updation-Enter Attribute1, value1, attribute2, value2",
                       "Voter",
                       "updation"
                     )
@@ -194,7 +194,7 @@ const FormSet = ({
                   href="#"
                   onClick={() =>
                     func(
-                      "Updating Party Table-Enter Attribute(s)",
+                      "Updation-Enter Attribute1, value1, attribute2, value2",
                       "Party",
                       "updation"
                     )
@@ -206,7 +206,7 @@ const FormSet = ({
                   href="#"
                   onClick={() =>
                     func(
-                      "Updating Booth Table-Enter Attribute(s)",
+                      "Updation-Enter Attribute1, value1, attribute2, value2",
                       "Booth",
                       "updation"
                     )

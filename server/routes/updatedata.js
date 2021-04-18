@@ -11,6 +11,9 @@ const UpdateData = async (req, res) => {
   let connection;
   let { data, table } = req.query;
   data = data.split(",");
+  
+  console.log(data);
+  
   console.log(req.query);
   try {
     connection = await oracledb.getConnection({
@@ -19,10 +22,10 @@ const UpdateData = async (req, res) => {
       connectString: CONNECTIONSTRING,
     });
 
-    const [attribute, oldvalue, newvalue] = data;
+    const {attribute1, oldvalue, attribute2, newvalue} = data;
 
     await connection.execute(
-      `UPDATE ${table} SET ${attribute} = :newvalue WHERE ${attribute} = :oldvalue`,
+      `UPDATE ${table} SET ${attribute2} = :newvalue WHERE ${attribute1} = :oldvalue`,
       [newvalue, oldvalue]
     ); // write your query to be executed here
 

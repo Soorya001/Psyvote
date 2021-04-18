@@ -148,7 +148,7 @@ function DisplayTable({tabname, data, setTabName}) {
                         <tr>
                           <td>{ID}</td>
                           <td>{NAME}</td>
-                          <td>{DO_ESTAB.substring(0,10)}</td>
+                          <td>{DO_ESTAB}</td>
                           <td>{LEADER}</td>
                           <td>{NO_OF_CANDIDATES}</td>
                         </tr>
